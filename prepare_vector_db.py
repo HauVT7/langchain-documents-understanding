@@ -17,8 +17,7 @@ def create_db_from_files():
     # Embedding chunks
     embedding_model = GPT4AllEmbeddings(
         model_file="models/all-MiniLM-L6-v2-f16.gguf",
-        gpt4all_kwargs={'allow_download': 'True'},
-        device="gpu"
+        gpt4all_kwargs={'allow_download': 'True'}
     )
     db = FAISS.from_documents(chunks, embedding_model)
     db.save_local(vector_db_path)
